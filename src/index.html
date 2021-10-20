@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NOtes</title>
+        <link href = "css/style.css" rel = "stylesheet"/>
+    </head>
+    <body>
+        <div id = "sidebar">
+            <button id = "btnAdd" onclick="addNote(prompt('Note name: '))">➕ New Note</button><br>
+            <h1>NOtes</h1>
+            <div id = "notes">
+                
+            </div> 
+        </div>
+
+        <main id = "main">
+            <textarea id = "editor"></textarea>
+        </main>
+
+        <script src = "js/persistance.js"></script>
+        <script src = "js/notes.js"></script>
+    </body>
+</html>
