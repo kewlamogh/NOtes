@@ -5,7 +5,7 @@ let deleted = lsData.deleted;
 
 function deleteNote(name) {
     if (!confirm(`Are you sure you want to delete \"${name}\"?`)) {
-
+        return;
     }
 
     delete notes[name];
@@ -17,6 +17,9 @@ function deleteNote(name) {
 function addNote(text) {
     let lns = text.split("\n");
     let firstLine = lns[0].replace("# ", "");
+    if (deleted.includes(firstLine)) {
+        deleted = deleted.filter((e) => e != firstLine);
+    }
     notes[firstLine] = text;
     document.getElementById("notes").innerHTML += "<br><div class = 'note' onclick = 'openNote(\""+firstLine+"\")'><span onclick = 'deleteNote(\""+firstLine+"\")'>🚮</span>"+firstLine+"</div>";
     openNote(firstLine);
